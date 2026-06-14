@@ -1,14 +1,9 @@
--- ============================================
--- RefConnect Database Schema
--- Job Referral & Networking Platform
--- ============================================
+
 
 CREATE DATABASE IF NOT EXISTS refconnect;
 USE refconnect;
 
--- ============================================
--- 1. Users Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS users (
     user_id      INT AUTO_INCREMENT PRIMARY KEY,
     name         VARCHAR(100) NOT NULL,
@@ -20,9 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
     INDEX idx_users_role (role)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 2. Profiles Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS profiles (
     profile_id   INT AUTO_INCREMENT PRIMARY KEY,
     user_id      INT NOT NULL UNIQUE,
@@ -36,18 +29,13 @@ CREATE TABLE IF NOT EXISTS profiles (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 3. Skills Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS skills (
     skill_id     INT AUTO_INCREMENT PRIMARY KEY,
     skill_name   VARCHAR(100) NOT NULL UNIQUE,
     INDEX idx_skill_name (skill_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 4. User_Skills Junction Table
--- ============================================
 CREATE TABLE IF NOT EXISTS user_skills (
     user_id      INT NOT NULL,
     skill_id     INT NOT NULL,
@@ -75,9 +63,6 @@ CREATE TABLE IF NOT EXISTS jobs (
     INDEX idx_jobs_deadline (deadline)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 6. Job_Skills Junction Table
--- ============================================
 CREATE TABLE IF NOT EXISTS job_skills (
     job_id       INT NOT NULL,
     skill_id     INT NOT NULL,
@@ -86,9 +71,7 @@ CREATE TABLE IF NOT EXISTS job_skills (
     FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 7. Connections Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS connections (
     connection_id INT AUTO_INCREMENT PRIMARY KEY,
     sender_id     INT NOT NULL,
@@ -103,9 +86,7 @@ CREATE TABLE IF NOT EXISTS connections (
     UNIQUE KEY uk_connection (sender_id, receiver_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 8. Referral Requests Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS referral_requests (
     referral_id   INT AUTO_INCREMENT PRIMARY KEY,
     applicant_id  INT NOT NULL,
@@ -122,9 +103,7 @@ CREATE TABLE IF NOT EXISTS referral_requests (
     INDEX idx_ref_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 9. Applications Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS applications (
     application_id INT AUTO_INCREMENT PRIMARY KEY,
     applicant_id   INT NOT NULL,
