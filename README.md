@@ -4,32 +4,7 @@ A full-stack web application where students, alumni, employees, and recruiters c
 
 ---
 
-## 🌐 Deploy for FREE (15 minutes)
-
-> **Railway** gives $5/month free credit — a small app like this uses ~$1–2/month, so it's **effectively free forever**. No credit card needed to start.
-
----
-
-### Step 1 — Push your code to GitHub
-
-1. Go to [github.com](https://github.com) → **New repository**
-2. Name it `reconnect` → set to **Private** → click **Create**
-3. Open **PowerShell** in your project folder (`C:\Users\ghate\OneDrive\Desktop\REconnect`) and run:
-
-```powershell
-git init
-git add .
-git commit -m "Initial commit - RefConnect"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/reconnect.git
-git push -u origin main
-```
-
-> Replace `YOUR_USERNAME` with your GitHub username.
-
----
-
-### Step 2 — Create a Railway account & project
+### Step 1 — Create a Railway account & project
 
 1. Go to **[railway.app](https://railway.app)** → click **Login** → **Login with GitHub**
 2. Click **New Project**
@@ -40,7 +15,7 @@ Railway will start building your app automatically.
 
 ---
 
-### Step 3 — Add a free MySQL database
+### Step 2 — Add a free MySQL database
 
 1. In your Railway project dashboard, click **+ New** (top right)
 2. Select **Database → MySQL**
@@ -50,38 +25,20 @@ Railway will start building your app automatically.
 
 ---
 
-### Step 4 — Connect your app to the database
-
-1. Click on your **web service** (the refconnect app)
-2. Go to **Variables** tab
-3. Click **+ New Variable** and add these one by one:
+### Step 3 — Connect your app to the database
 
 | Variable | Value |
 |---|---|
 | `SESSION_SECRET` | `any-long-random-string-like-refconnect-xyz-2024-abc` |
 | `NODE_ENV` | `production` |
-
-> The `MYSQL*` variables are automatically shared between services on Railway — you don't need to copy them manually!
-
-4. Click **Deploy** (or it may auto-redeploy)
-
 ---
 
-### Step 5 — Set up the database schema
+### Step 4 — Set up the database schema
 
 1. In Railway, click on your **MySQL** service
 2. Click the **Query** tab (or use **Connect** → open a MySQL GUI)
 3. Paste the entire contents of `database/schema.sql` and click **Run**
 4. *(Optional)* Also run `database/seed.sql` to add sample data
-
----
-
-### Step 6 — Get your live URL 🎉
-
-1. Click on your **web service** in Railway
-2. Go to **Settings** → **Networking** → click **Generate Domain**
-3. You'll get a URL like: `https://reconnect-production.up.railway.app`
-4. **Share this link with anyone** — they can register and use the app!
 
 ---
 
