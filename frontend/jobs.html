@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs — RefConnect</title>
+    <meta name="description" content="Browse and apply to matched job opportunities on RefConnect.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/api.js"></script>
+    <script defer src="js/jobs.js"></script>
+</head>
+<body class="page-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>⚡ RefConnect</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+            <a href="profile.html" class="nav-link">👤 Profile</a>
+            <a href="jobs.html" class="nav-link active">💼 Jobs</a>
+            <a href="connections.html" class="nav-link">🤝 My Network</a>
+            <a href="referrals.html" class="nav-link">📩 Referrals</a>
+            <a href="applications.html" class="nav-link">📋 Applications</a>
+            <a href="#" class="nav-link" id="logoutBtn" style="color: var(--danger);">🚪 Logout</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+
+        <header class="page-header page-header-row">
+            <h1>💼 Jobs</h1>
+            <button id="postJobBtn" class="btn btn-primary" style="display:none;">+ Post Job</button>
+        </header>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <input type="text" id="searchInput" class="form-input" placeholder="🔍 Search by title or company..." style="flex: 1; min-width: 200px;">
+            <select id="filterSelect" class="form-select" style="min-width: 160px;">
+                <option value="all">All Jobs</option>
+                <option value="matched">Matched Jobs</option>
+                <option value="my_posts" id="myPostsOption" style="display:none;">My Posted Jobs</option>
+            </select>
+        </div>
+
+        <!-- Jobs Grid -->
+        <section id="jobs-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="job-card skeleton" style="height: 200px;"></div>
+            <div class="job-card skeleton" style="height: 200px;"></div>
+            <div class="job-card skeleton" style="height: 200px;"></div>
+        </section>
+
+    </main>
+
+    <!-- Post Job Modal -->
+    <div id="jobModal" class="modal-overlay" style="display:none;">
+        <div class="modal" style="padding: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2>📝 Post a Job</h2>
+                <button class="modal-close" id="closeModalBtn">✕</button>
+            </div>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label class="form-label">Job Title *</label>
+                    <input type="text" id="job-title" class="form-input" placeholder="e.g. Frontend Developer" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Company Name *</label>
+                    <input type="text" id="job-company" class="form-input" placeholder="e.g. Google" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Location *</label>
+                        <input type="text" id="job-location" class="form-input" placeholder="e.g. Bangalore" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Salary (₹/yr)</label>
+                        <input type="number" id="job-salary" class="form-input" placeholder="e.g. 1200000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Application Deadline *</label>
+                    <input type="date" id="job-deadline" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Job Description *</label>
+                    <textarea id="job-description" class="form-input form-textarea" rows="4" placeholder="Describe the role and responsibilities..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Required Skills <span class="text-muted">(comma-separated)</span></label>
+                    <input type="text" id="job-skills" class="form-input" placeholder="e.g. React, Node.js, AWS">
+                </div>
+                <div class="flex gap-4 mt-4">
+                    <button type="submit" class="btn btn-primary" id="saveJobBtn">🚀 Post Job</button>
+                    <button type="button" class="btn btn-outline" id="cancelJobBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+</body>
+</html>

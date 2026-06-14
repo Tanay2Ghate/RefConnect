@@ -1,0 +1,11 @@
+[build]
+buildCommand = "cd backend && npm install"
+watchPatterns = ["backend/**", "frontend/**"]
+
+[deploy]
+startCommand = "cd backend && npm start"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[[services]]
+name = "refconnect"

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — RefConnect</title>
+    <meta name="description" content="View and edit your RefConnect profile.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/api.js"></script>
+    <script defer src="js/profile.js"></script>
+</head>
+<body class="page-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>⚡ RefConnect</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+            <a href="profile.html" class="nav-link active">👤 Profile</a>
+            <a href="jobs.html" class="nav-link">💼 Jobs</a>
+            <a href="connections.html" class="nav-link">🤝 My Network</a>
+            <a href="referrals.html" class="nav-link">📩 Referrals</a>
+            <a href="applications.html" class="nav-link">📋 Applications</a>
+            <a href="#" class="nav-link" id="logoutBtn" style="color: var(--danger);">🚪 Logout</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+
+        <header class="page-header page-header-row">
+            <h1>My Profile</h1>
+            <button id="editBtn" class="btn btn-outline">✏️ Edit Profile</button>
+        </header>
+
+        <!-- View Mode -->
+        <section id="view-profile" class="glass-card">
+            <div class="profile-header" style="flex-direction: row; align-items: center; gap: 1.5rem;">
+                <div class="avatar-placeholder avatar-xl" id="profile-avatar">U</div>
+                <div style="flex: 1;">
+                    <h2 id="view-name" style="font-size: 1.75rem;">Loading...</h2>
+                    <span id="view-role" class="badge badge-accent mt-1">—</span>
+                    <p id="view-location" class="text-muted mt-2" style="display:flex; align-items:center; gap:4px;">📍 <span id="view-location-text"></span></p>
+                </div>
+            </div>
+
+            <div class="profile-section mt-5">
+                <h3>Bio</h3>
+                <p id="view-bio" class="text-secondary" style="line-height: 1.7;">No bio provided yet.</p>
+            </div>
+
+            <div class="grid-2 mt-4" style="gap: 1.5rem;">
+                <div class="profile-section">
+                    <h3>Experience</h3>
+                    <p id="view-experience" class="text-secondary">Not provided.</p>
+                </div>
+                <div class="profile-section">
+                    <h3>Education</h3>
+                    <p id="view-education" class="text-secondary">Not provided.</p>
+                </div>
+            </div>
+
+            <div class="profile-section mt-4">
+                <h3>Skills</h3>
+                <div id="view-skills" class="skill-pills">
+                    <span class="text-muted">No skills added yet.</span>
+                </div>
+            </div>
+
+            <div class="profile-section mt-4">
+                <h3>Links</h3>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#" id="view-resume" class="btn btn-sm btn-outline" target="_blank" style="display:none;">📄 Resume</a>
+                    <a href="#" id="view-linkedin" class="btn btn-sm btn-outline" target="_blank" style="display:none;">🔗 LinkedIn</a>
+                    <a href="#" id="view-github" class="btn btn-sm btn-outline" target="_blank" style="display:none;">💻 GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Edit Mode -->
+        <section id="edit-profile" class="glass-card mt-4" style="display: none;">
+            <h2 style="margin-bottom: 1.5rem;">Edit Profile</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label class="form-label">Bio</label>
+                    <textarea id="edit-bio" class="form-input form-textarea" rows="3" placeholder="Tell people about yourself..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Location</label>
+                        <input type="text" id="edit-location" class="form-input" placeholder="e.g. Mumbai, India">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Education</label>
+                        <input type="text" id="edit-education" class="form-input" placeholder="e.g. B.Tech, IIT Bombay">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Experience</label>
+                    <textarea id="edit-experience" class="form-input form-textarea" rows="3" placeholder="Describe your work experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Skills <span class="text-muted">(Press Enter to add)</span></label>
+                    <input type="text" id="skill-input" class="form-input" placeholder="e.g. JavaScript">
+                    <div id="edit-skills-container" class="skill-pills mt-2"></div>
+                </div>
+
+                <div class="form-row" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="form-group">
+                        <label class="form-label">Resume Link</label>
+                        <input type="url" id="edit-resume" class="form-input" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">LinkedIn</label>
+                        <input type="url" id="edit-linkedin" class="form-input" placeholder="https://linkedin.com/in/...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">GitHub</label>
+                        <input type="url" id="edit-github" class="form-input" placeholder="https://github.com/...">
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-4">
+                    <button type="submit" class="btn btn-primary" id="saveBtn">💾 Save Changes</button>
+                    <button type="button" class="btn btn-outline" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+</body>
+</html>

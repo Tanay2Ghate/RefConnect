@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referrals — RefConnect</title>
+    <meta name="description" content="Track and manage your referrals on RefConnect.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/api.js"></script>
+    <script defer src="js/referrals.js"></script>
+</head>
+<body class="page-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>⚡ RefConnect</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+            <a href="profile.html" class="nav-link">👤 Profile</a>
+            <a href="jobs.html" class="nav-link">💼 Jobs</a>
+            <a href="connections.html" class="nav-link">🤝 My Network</a>
+            <a href="referrals.html" class="nav-link active">📩 Referrals</a>
+            <a href="applications.html" class="nav-link">📋 Applications</a>
+            <a href="#" class="nav-link" id="logoutBtn" style="color: var(--danger);">🚪 Logout</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <h1>📩 Referrals</h1>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="received">Received Requests</button>
+            <button class="tab-btn" data-tab="sent">Sent Requests</button>
+        </div>
+
+        <div id="received" class="tab-content active" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="referral-card skeleton" style="height: 120px;"></div>
+            <div class="referral-card skeleton" style="height: 120px;"></div>
+        </div>
+
+        <div id="sent" class="tab-content" style="display: none; flex-direction: column; gap: 1rem;">
+        </div>
+
+    </main>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+</body>
+</html>

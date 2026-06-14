@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Network — RefConnect</title>
+    <meta name="description" content="Manage your professional connections on RefConnect.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/api.js"></script>
+    <script defer src="js/connections.js"></script>
+</head>
+<body class="page-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>⚡ RefConnect</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+            <a href="profile.html" class="nav-link">👤 Profile</a>
+            <a href="jobs.html" class="nav-link">💼 Jobs</a>
+            <a href="connections.html" class="nav-link active">🤝 My Network</a>
+            <a href="referrals.html" class="nav-link">📩 Referrals</a>
+            <a href="applications.html" class="nav-link">📋 Applications</a>
+            <a href="#" class="nav-link" id="logoutBtn" style="color: var(--danger);">🚪 Logout</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <h1>🤝 My Network</h1>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="my-connections">My Connections</button>
+            <button class="tab-btn" data-tab="requests">
+                Requests&nbsp;<span id="reqBadge" class="badge badge-warning" style="display:none;">0</span>
+            </button>
+            <button class="tab-btn" data-tab="discover">Discover People</button>
+        </div>
+
+        <div id="my-connections" class="tab-content active" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;">
+            <div class="user-card skeleton" style="height: 200px;"></div>
+            <div class="user-card skeleton" style="height: 200px;"></div>
+            <div class="user-card skeleton" style="height: 200px;"></div>
+        </div>
+
+        <div id="requests" class="tab-content" style="display: none; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;">
+        </div>
+
+        <div id="discover" class="tab-content" style="display: none; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;">
+        </div>
+
+    </main>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+</body>
+</html>

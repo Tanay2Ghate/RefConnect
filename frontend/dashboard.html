@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — RefConnect</title>
+    <meta name="description" content="Your RefConnect dashboard — track connections, referrals, and job applications.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/api.js"></script>
+    <script defer src="js/dashboard.js"></script>
+</head>
+<body class="page-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>⚡ RefConnect</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link active">🏠 Dashboard</a>
+            <a href="profile.html" class="nav-link">👤 Profile</a>
+            <a href="jobs.html" class="nav-link">💼 Jobs</a>
+            <a href="connections.html" class="nav-link">🤝 My Network</a>
+            <a href="referrals.html" class="nav-link">📩 Referrals</a>
+            <a href="applications.html" class="nav-link">📋 Applications</a>
+            <a href="#" class="nav-link" id="logoutBtn" style="margin-top: auto; color: var(--danger);">🚪 Logout</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <div>
+                <h1>Welcome back, <span id="user-name" style="color: var(--accent-glow);">...</span> 👋</h1>
+                <p style="color: var(--text-muted); margin-top: 4px;">
+                    <span id="user-role" class="badge badge-accent">Loading...</span>
+                    &nbsp;Here's what's happening today.
+                </p>
+            </div>
+        </header>
+
+        <!-- Stat Cards -->
+        <section class="app-stats-grid" id="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon accent">🤝</div>
+                <div>
+                    <p class="stat-value" id="stat-connections">—</p>
+                    <p class="stat-label">Connections</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon warning">📩</div>
+                <div>
+                    <p class="stat-value" id="stat-referrals">—</p>
+                    <p class="stat-label">Pending Referrals</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon success">📋</div>
+                <div>
+                    <p class="stat-value" id="stat-applications">—</p>
+                    <p class="stat-label">Applications</p>
+                </div>
+            </div>
+            <div class="stat-card" id="matched-jobs-card">
+                <div class="stat-icon info">💼</div>
+                <div>
+                    <p class="stat-value" id="stat-matched-jobs">—</p>
+                    <p class="stat-label" id="matched-jobs-label">Matched Jobs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions + Activity -->
+        <div class="grid-2" style="gap: 1.5rem;">
+
+            <!-- Quick Actions -->
+            <section>
+                <h2 style="font-size: 1.125rem; margin-bottom: 1rem;">Quick Actions</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="jobs.html" class="quick-action">
+                        <div class="qa-icon accent">🔍</div>
+                        <div>
+                            <h4>Browse Jobs</h4>
+                            <p>Explore matched opportunities</p>
+                        </div>
+                    </a>
+                    <a href="connections.html" class="quick-action">
+                        <div class="qa-icon info">👥</div>
+                        <div>
+                            <h4>Expand Network</h4>
+                            <p>Connect with alumni & employees</p>
+                        </div>
+                    </a>
+                    <a href="referrals.html" class="quick-action">
+                        <div class="qa-icon warning">⭐</div>
+                        <div>
+                            <h4>Manage Referrals</h4>
+                            <p>Track referral status</p>
+                        </div>
+                    </a>
+                    <a href="profile.html" class="quick-action">
+                        <div class="qa-icon success">✏️</div>
+                        <div>
+                            <h4>Update Profile</h4>
+                            <p>Keep your profile fresh</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section>
+                <h2 style="font-size: 1.125rem; margin-bottom: 1rem;">Recent Activity</h2>
+                <div class="glass-card" style="padding: 1rem;">
+                    <div class="activity-list" id="recent-activity-list">
+                        <div class="skeleton" style="height: 48px; margin-bottom: 8px; border-radius: 8px;"></div>
+                        <div class="skeleton" style="height: 48px; margin-bottom: 8px; border-radius: 8px;"></div>
+                        <div class="skeleton" style="height: 48px; border-radius: 8px;"></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+</body>
+</html>

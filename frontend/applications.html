@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications — RefConnect</title>
+    <meta name="description" content="Track all your job applications on RefConnect.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/api.js"></script>
+    <script defer src="js/applications.js"></script>
+</head>
+<body class="page-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>⚡ RefConnect</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">🏠 Dashboard</a>
+            <a href="profile.html" class="nav-link">👤 Profile</a>
+            <a href="jobs.html" class="nav-link">💼 Jobs</a>
+            <a href="connections.html" class="nav-link">🤝 My Network</a>
+            <a href="referrals.html" class="nav-link">📩 Referrals</a>
+            <a href="applications.html" class="nav-link active">📋 Applications</a>
+            <a href="#" class="nav-link" id="logoutBtn" style="color: var(--danger);">🚪 Logout</a>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <main class="main-content">
+
+        <header class="page-header">
+            <h1 id="page-title">📋 Applications</h1>
+        </header>
+
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th id="col-name">Job Title</th>
+                        <th id="col-company">Company</th>
+                        <th>Applied On</th>
+                        <th>Status</th>
+                        <th id="col-actions" style="display:none;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="app-tbody">
+                    <tr>
+                        <td colspan="5" style="text-align:center; padding: 2rem; color: var(--text-muted);">
+                            Loading applications...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+</body>
+</html>
