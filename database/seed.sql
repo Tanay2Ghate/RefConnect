@@ -1,12 +1,7 @@
--- ============================================
--- RefConnect Sample Seed Data
--- ============================================
+
 
 USE refconnect;
 
--- ============================================
--- 1. Skills (20 common tech skills)
--- ============================================
 INSERT INTO skills (skill_name) VALUES
 ('JavaScript'),
 ('Python'),
