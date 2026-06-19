@@ -1,4 +1,4 @@
-# ⚡ RefConnect — Job Referral & Networking Platform
+ RefConnect — Job Referral & Networking Platform
 
 A full-stack web application where students, alumni, employees, and recruiters connect for job referrals. Built with **Node.js**, **Express**, **MySQL**, and vanilla **HTML/CSS/JS**.
 
@@ -42,7 +42,7 @@ Railway will start building your app automatically.
 
 ---
 
-## 💻 Run Locally (Development)
+##  Run Locally (Development)
 
 ### Prerequisites
 - Node.js 18+
@@ -72,7 +72,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 REconnect/
@@ -119,7 +119,7 @@ REconnect/
 
 ---
 
-## 👥 User Roles
+##  User Roles
 
 | Role | Can Do |
 |---|---|
@@ -130,7 +130,7 @@ REconnect/
 
 ---
 
-## 🔒 Environment Variables
+##  Environment Variables
 
 | Variable | Description | Required |
 |---|---|---|
@@ -145,7 +145,7 @@ REconnect/
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend**: Node.js, Express.js
 - **Database**: MySQL 8 with mysql2
