@@ -13,8 +13,6 @@ A full-stack web application where students, alumni, employees, and recruiters c
 
 Railway will start building your app automatically.
 
----
-
 ### Step 2 — Add a free MySQL database
 
 1. In your Railway project dashboard, click **+ New** (top right)
@@ -23,7 +21,6 @@ Railway will start building your app automatically.
 4. Click on the **MySQL** service → go to the **Variables** tab
 5. You'll see variables like `MYSQLHOST`, `MYSQLPORT`, `MYSQLUSER`, `MYSQLPASSWORD`, `MYSQLDATABASE`
 
----
 
 ### Step 3 — Connect your app to the database
 
@@ -31,7 +28,7 @@ Railway will start building your app automatically.
 |---|---|
 | `SESSION_SECRET` | `any-long-random-string-like-refconnect-xyz-2024-abc` |
 | `NODE_ENV` | `production` |
----
+
 
 ### Step 4 — Set up the database schema
 
@@ -40,7 +37,7 @@ Railway will start building your app automatically.
 3. Paste the entire contents of `database/schema.sql` and click **Run**
 4. *(Optional)* Also run `database/seed.sql` to add sample data
 
----
+
 
 ##  Run Locally (Development)
 
