@@ -44,9 +44,7 @@ CREATE TABLE IF NOT EXISTS user_skills (
     FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- ============================================
--- 5. Jobs Table
--- ============================================
+
 CREATE TABLE IF NOT EXISTS jobs (
     job_id        INT AUTO_INCREMENT PRIMARY KEY,
     recruiter_id  INT NOT NULL,
